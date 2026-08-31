@@ -154,11 +154,11 @@
                     origin: { y: 0.6 }
                 });
                 
-                alert("'" + choice + "' it is! It's a date. (And yes, you are officially locked into this choice now). ❤️");
+                alert("'" + choice + "' it is! It's a date❤️ (Click close to redirect to WhatsApp)");
                 
                 // Redirects to WhatsApp after she clicks 'OK' on the alert
                 const phoneNumber = "923174217435"; // INSERT YOUR NUMBER HERE
-                const message = encodeURIComponent("For my birthday dinner, I'm cashing in my choice for: " + choice + " 🍽️");
+                const message = encodeURIComponent("For my birthday dinner, my choice is: " + choice + " 🍽️");
                 window.location.href = "https://wa.me/" + phoneNumber + "?text=" + message;
             }
         }

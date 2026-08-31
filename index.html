@@ -101,10 +101,15 @@
         </div>
 
         <div class="dinner-invite">
-            <h3>Now for the important part...</h3>
-            <p>Will you let me take you out for a birthday dinner tonight?</p>
-            <button onclick="acceptDinner()">Yes</button>
-            <button onclick="acceptDinner()">Absolutely Yes</button>
+            <h3>Lunch is out, but dinner is on! 🍽️</h3>
+            <p>Since our schedules won't let us escape for lunch today, could you stay back for dinner? (If not, we will absolutely raincheck lunch for another day!).</p>
+            <p>Because it is your birthday, you receive the ultimate gift: <strong>the immense, paralyzing pressure of deciding exactly where we eat.</strong></p>
+            
+            <div style="margin-top: 20px;">
+                <input type="text" id="food-choice" placeholder="Type your craving here..." style="padding: 10px; width: 70%; max-width: 300px; border-radius: 5px; border: 1px solid #d4a373; font-family: inherit;">
+                <br>
+                <button onclick="submitChoice()">Lock it in</button>
+            </div>
         </div>
     </div>
 
@@ -136,14 +141,20 @@
             }());
         };
 
-        // Dinner button interaction
-        function acceptDinner() {
-            confetti({
-                particleCount: 150,
-                spread: 70,
-                origin: { y: 0.6 }
-            });
-            alert("It's a date! See you tonight. ❤️");
+        // Dinner choice interaction
+        function submitChoice() {
+            const choice = document.getElementById('food-choice').value;
+            
+            if (choice.trim() === "") {
+                alert("Nice try! You actually have to pick somewhere. It's the rules.");
+            } else {
+                confetti({
+                    particleCount: 150,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+                alert("'" + choice + "' it is! It's a date. (And yes, you are officially locked into this choice now). ❤️");
+            }
         }
     </script>
 </body>

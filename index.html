@@ -141,7 +141,7 @@
             }());
         };
 
-        // Dinner choice interaction
+        // Dinner choice interaction with WhatsApp redirect
         function submitChoice() {
             const choice = document.getElementById('food-choice').value;
             
@@ -153,7 +153,13 @@
                     spread: 70,
                     origin: { y: 0.6 }
                 });
+                
                 alert("'" + choice + "' it is! It's a date. (And yes, you are officially locked into this choice now). ❤️");
+                
+                // Redirects to WhatsApp after she clicks 'OK' on the alert
+                const phoneNumber = "923174217435"; // INSERT YOUR NUMBER HERE
+                const message = encodeURIComponent("For my birthday dinner, I'm cashing in my choice for: " + choice + " 🍽️");
+                window.location.href = "https://wa.me/" + phoneNumber + "?text=" + message;
             }
         }
     </script>

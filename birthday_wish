@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            background-color: #fce4ec;
+            font-family: 'Georgia', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            color: #4a4a4a;
+        }
+        .postcard {
+            background: #fffdf2;
+            border: 2px dashed #d4a373;
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 600px;
+            box-shadow: 5px 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+        }
+        .flowers {
+            font-size: 2rem;
+            letter-spacing: 15px;
+            margin-bottom: 20px;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+        .gallery img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            transform: rotate(-3deg);
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        .gallery img:nth-child(even) {
+            transform: rotate(4deg);
+        }
+        .gallery img:hover {
+            transform: scale(1.1) rotate(0deg);
+        }
+        h1 {
+            color: #d81b60;
+            margin-bottom: 10px;
+        }
+        p {
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+        .dinner-invite {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #d4a373;
+        }
+        button {
+            background-color: #d81b60;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #ad144d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="postcard">
+        <div class="flowers">🌸 🌺 🌼 🌷 🌸</div>
+        
+        <h1>Happy Birthday!</h1>
+        
+        <p>Write your lovely, heartfelt postcard message right here. Tell her how amazing she is and why today is so special.</p>
+
+        <div class="gallery">
+            <!-- Replace these src attributes with the actual filenames of your silly pictures -->
+            <img src="silly1.jpg" alt="Us being silly">
+            <img src="silly2.jpg" alt="More silliness">
+            <img src="silly3.jpg" alt="Even more silliness">
+        </div>
+
+        <div class="dinner-invite">
+            <h3>Now for the important part...</h3>
+            <p>Will you let me take you out for a birthday dinner tonight?</p>
+            <button onclick="acceptDinner()">Yes</button>
+            <button onclick="acceptDinner()">Absolutely Yes</button>
+        </div>
+    </div>
+
+    <script>
+        // Trigger confetti on page load
+        window.onload = function() {
+            var duration = 3 * 1000;
+            var end = Date.now() + duration;
+
+            (function frame() {
+                confetti({
+                    particleCount: 5,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: ['#ffb7b2', '#ff9a9e', '#fecfef']
+                });
+                confetti({
+                    particleCount: 5,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: ['#ffb7b2', '#ff9a9e', '#fecfef']
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        };
+
+        // Dinner button interaction
+        function acceptDinner() {
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+            alert("It's a date! See you tonight. ❤️");
+        }
+    </script>
+</body>
+</html>
